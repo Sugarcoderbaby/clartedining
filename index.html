@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clarté | Fine Dining</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/png" href="icons/Clarte_Favicon.png">
+
+    <script>
+        /*--listen to scroll--*/
+        document.addEventListener("DOMContentLoaded", function () {
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('listen-scroll');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            const targets = document.querySelectorAll('#about h1:first-child, #about h1:nth-child(2), #about p, #clartemenu h2, #reservations h2, #reservations div');
+            targets.forEach(target => observer.observe(target));
+        });
+
+
+        /*another function*/
+        let originalStyles = {};
+
+        function boldColor(hoverGroup) {
+            const figure = hoverGroup.closest('figure'); // Find the closest figure element
+            const para = figure.querySelector('p'); // Find the paragraph within the figure
+
+            if (para) {
+                if (!originalStyles[para]) {
+                    // Store the original font size and color
+                    const currentFS = parseFloat(window.getComputedStyle(para).fontSize);
+                    const currentColor = window.getComputedStyle(para).color;
+                    originalStyles[para] = {fontSize: currentFS, color: currentColor};
+                }
+
+                const newFS = originalStyles[para].fontSize + 5; // Increase font size by 5px
+                para.style.fontSize = newFS + 'px';
+                para.style.color = "#8b2f00"; // Change color
+            }
+        }
+
+        function resetColor(hoverGroup) {
+            const figure = hoverGroup.closest('figure'); // Find the closest figure element
+            const para = figure.querySelector('p'); // Find the paragraph within the figure
+
+            if (para && originalStyles[para]) {
+                // Restore the original font size and color
+                para.style.fontSize = originalStyles[para].fontSize + 'px';
+                para.style.color = originalStyles[para].color;
+            }
+        }
+
+        /*reserveform*/
+        document.addEventListener("DOMContentLoaded", function () {
+            const openFormBtn = document.querySelector(".reserve");
+            const modal = document.getElementById("reservationForm");
+            const closeBtn = document.querySelector(".close");
+
+            // Open the modal form
+            openFormBtn.addEventListener("click", function () {
+                modal.style.display = "block";
+            });
+
+            // Close the modal form
+            closeBtn.addEventListener("click", function () {
+                modal.style.display = "none";
+            });
+
+            // Close the modal when clicking outside of it
+            window.addEventListener("click", function (event) {
+                if (event.target === modal) {
+                    modal.style.display = "none";
+                }
+            });
+
+            // Prevent form submission for now
+            const form = document.querySelector("form");
+            form.addEventListener("submit", function (event) {
+                event.preventDefault();
+                // You can add form submission logic here
+                console.log("Form submitted!");
+            });
+        });
+
+
+
+    </script>
+</head>
+
+<body>
+    <header>
+        <div id="container">
+            <a href="index.html">
+                <img class="logo" src="icons/Clarte_Icon.png" alt="clarté's logo icon"></a>
+            <a href="Navigation.html">
+                <img class="menubar" src="icons/Menu.png" alt="menu"></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#clartemenu">Menu</a></li>
+                    <li><a href="#reservations">Reservations</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="icons">
+        <img class="reservationsicon" src="images/Reservation.png" alt="icon for reservations"></img>
+        <img class="facebookicon" src="images/facebook.png" alt="facebook icon"></img>
+        <img class="instagramicon" src="images/instagram.png" alt="instagram icon"></img>
+    </div>
+    <main>
+        <section id="index">
+            <div><img id="backgroundimg" src="images/Clarte_Restaurant_Space_small_Dimmed.jpg"
+                    alt="clarté restaurant dining interior"></img></div>
+            <div id="headcombo">
+                <h1 class="headline1">experience</h1><br>
+                <img class="headline2" src="icons/Clarte-Wordlogo_Cream.png" alt="Clarte's logo"></img>
+            </div>
+        </section>
+
+        <!--Section: About-->
+
+        <section id="about">
+            <figure><img id="aboutimg" src="images/Clarte_Final_Touches_on_dish_smaller.png"
+                    alt="Chef adding final touches to a dish"></img>
+                <div>
+                    <h1>The</h1>
+                    <h1>Root</h1>
+                </div>
+            </figure>
+            <article>
+                <p>Nestled in the heart of Saigon, clarte is born from a passion for the pure essence of ingredients and
+                    a reverence for the natural world.
+                    In clarte, clarity is not just a principle but a way of life. Our chef approached their craft with a
+                    deep respect for nature’s bounty.
+                    They understood true culinary lay not in manipulation but in revelation ; revealing the inherent
+                    beauty and complexity of each ingredient.
+                    Guided by a commitment to transparency, humbly sourced the finest ingredients from local farmers,
+                    fishermen and foragers. Each ingredient
+                    told a story of its own, from earthy richness of hand-picked mushrooms to delicate sweetness of sun
+                    ripened heirloom tomatoes. </p>
+            </article>
+            <!--
+                    <article>
+                        <h3>Restaurant Information</h3>
+                        <button class="reserve">Reserve</button>
+                        <figure><img src="" alt=""><p>09/39 Đ. Nguyễn Thiện Thuật, Phường 12, Quận 3, Thành phố Hồ Chí Minh, Vietnam</p></figure>
+                        <figure><img src="" alt=""><p>concierge@clarte.com</p></figure>
+                        <figure><img src="" alt=""><p>(+84) 91495XXXX</p></figure>
+                        <h6>Operation Hours</h6>
+                        <p>Monday to Sunday</p>
+                        <p>Lunch 12.00pm</p>
+                        <p>Dinner 7.00pm</p>
+                    </article>
+                    -->
+
+        </section>
+
+        <!--Section: Menu-->
+        <section id="clartemenu">
+            <h2>Menu</h2>
+            <div>
+                <figure><img src="images/Clarte_Dish.png" alt="Roast turkey on white plate"
+                        onmouseover="boldColor(this)" onmouseout="resetColor(this)"></img>
+                    <p>Lunch menu</p>
+                </figure>
+
+                <figure><img src="images/Langoustine_Dish.png" alt="Langoustine with basil dish on white plate"
+                        onmouseover="boldColor(this)" onmouseout="resetColor(this)"></img>
+                    <p>Dinner menu</p>
+                </figure>
+
+                <figure><img src="images/Classic_Bordeaux.png" alt="Bordeaux red wine with a glass on restaurant table"
+                        onmouseover="boldColor(this)" onmouseout="resetColor(this)"></img>
+                    <p>Wine list</p>
+                </figure>
+
+                <figure><img src="images/Clarte_linen_menu.png" alt="Clarté's menu book in linen"
+                        onmouseover="boldColor(this)" onmouseout="resetColor(this)"></img>
+                    <p>À la carte</p>
+                </figure>
+            </div>
+
+        </section>
+        <!--Section: Reservations-->
+        <section id="reservations">
+            <h2>Reservation</h2>
+            <div id=reservationsdiv>
+                <p>Thank you for choosing to dine with Clarté. Please take note of the following.<br>
+                <p class="highlight">Dress code:</p>
+                <p>Smart Casual</p>
+                <p class="highlight">Please be reminded to be dressed in long trousers and covered shoes. Kindly note
+                    that shorts and flip-flops are not permitted.</p>
+                <p>Our menus are specially sourced and curated to provide guests with a Vietnamese local cuisine
+                    experience. Our menu contains dairy, eggs, and gluten. We are unable to accommodate guests with
+                    dairy allergies or intolerance.
+                    Menu and price are subject to change. </p>
+                <p>For larger parties of 6 guests and above, kindly contact our Reservation Concierge.
+                    Should your desired date and time not be available, please contact our Reservation Concierge. </p>
+
+                <button class="reserve">Reservation</button>
+            </div>
+
+            <div id="reservationForm" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Reservation Form</h2>
+                    <form>
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+
+                        <label for="date">Date:</label>
+                        <input type="date" id="date" name="date" required>
+
+                        <label for="time">Time:</label>
+                        <input type="time" id="time" name="time" required>
+
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!--Section: Footer-->
+
+        <section id="footer">
+            <footer>
+                <div>
+                    <img src="icons/Clarte-Fulllogo.png" alt="Clarté's logo"></img>
+                    <address><img src="images/location_icon.svg" alt="location icon"></img>
+                        <p>Location: 09/39 D. Nguyen Thien Thuat, Phurong 12, Quan 3, Thanh pho Ho Chi Minh, Vietnam</p>
+                    </address>
+                    <ul>
+                        <li>&copy;2024 Clarté</li>
+                        <li>Terms & Privacy</li>
+                        <li><a href="mailto:concierge@clarte.com">Contact</a></li>
+                    </ul>
+                </div>
+            </footer>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>

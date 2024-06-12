@@ -1,0 +1,753 @@
+
+/* stylesheet for clarte restaurant */
+
+
+@font-face{
+    font-family: clartefont;
+src: url('../css/msyi.ttf')}
+
+@keyframes slide-in-left {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in-right {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-30px);
+    }
+    60% {
+      transform: translateY(-15px);
+    }
+  }
+
+  @keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+  }
+
+  @keyframes fadeIn8 {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0.8;
+    }
+  }
+
+
+  #about h1:first-child.listen-scroll {
+    animation: slide-in-left 4s linear;
+}
+
+
+#about h1:nth-child(2).listen-scroll {
+    animation: slide-in-right 4s linear;
+}
+
+#about p.listen-scroll{
+    animation: fadeIn 8s forwards;
+}
+
+#clartemenu h2.listen-scroll{
+    animation: fadeIn 6s forwards;
+}
+#reservations h2.listen-scroll{
+    animation: fadeIn 6s forwards;
+}
+
+#reservations div.listen-scroll{
+    animation: fadeIn8 6s forwards;
+}
+
+
+  /*--sections--*/
+
+
+@media screen and (min-width: 100px){
+
+h6{
+    font-family: clartefont;
+    font-size: 1.2rem;
+    color:#727272;
+}
+
+.highlight{
+    font-weight: bolder;
+    color:#282828;
+}
+
+html{
+    scroll-behavior: smooth;
+  }
+
+header {
+    width: 100vw;
+position:fixed;
+z-index: 2;
+top: 0;
+left: 0;
+padding-top: 20px;
+}
+
+nav{
+    display: none;
+}
+
+.navbottom{
+    display:block;
+}
+
+#container {
+    display: flex;
+        justify-content: space-between;
+        width: 100vw;
+        position: absolute;
+}
+
+
+.logo{
+    height: 38px;
+    width: 38px;
+    padding-left: 20px;
+}
+.menubar{
+    height: 40px;
+    width: 40px;
+    padding-right: 20px; filter: grayscale(1) brightness(1.2) sepia(0) hue-rotate(0deg) saturate(0) contrast(1);
+}
+
+
+#backgroundimg{
+   position: absolute;
+   width: 100vw;
+   height: 100vh;
+   top: 0;
+   left: 0;
+   filter: blur(4px);
+}
+
+#backgroundimg:hover{
+    filter: blur(0px);
+    transition-duration: 2s;
+ }
+
+h1{
+    font-size: 14vw;
+    font-family: clartefont;
+    color: #fcfcf7;
+    font-weight:lighter;
+}
+
+#headcombo{
+    width: 100vw;
+        height: 20vh;
+        display: flex;
+        position: absolute;
+        justify-content: center;
+        top: 40vh;
+        text-align: center;
+}
+
+.headline1{
+    position: absolute;
+    z-index: 1;
+    left: 10%;
+    height: 10vh;
+    bottom: 20%;
+    animation: slide-in-left 3s ease-out forwards;
+
+}
+
+.headline2{
+    z-index: 1;
+    width: 65%;
+    position: absolute;
+    left: 25%;
+    top: 40%;
+        animation: slide-in-right 3s ease-out forwards;
+}
+
+}
+
+
+.icons{
+    display: grid;
+    grid-template-columns: 40% 30% 30%;
+    column-gap: 15%;
+    z-index: 1;
+    position: fixed;
+    bottom: 0;
+    left: 10px;
+    padding: 10px;
+}
+
+.icons img{
+    height: 30px;
+}
+
+.reservationsicon:hover, .facebookicon:hover, .instagramicon:hover{
+    animation: bounce 2s;
+}
+
+/*Menubar*/
+
+#menunav{
+display: flex;
+justify-content: center;
+align-items: center;
+position: absolute;
+height: 100vh;
+width: 100vw;
+margin: 0;
+left: 0;
+top: 0;
+background-color: #f5f5f5;
+opacity: 0.5;
+z-index: 3;
+}
+
+ul{
+    font-family: clartefont;
+    z-index: 3;
+    list-style-type: none;
+    display: grid;
+    row-gap: 10px;
+    font-size: 20px;
+
+}
+
+/*--about section--*/
+
+main{
+    width: 100vw;
+    display: grid;
+    grid-template-rows: 100vh auto auto auto;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+section{
+    display: block;
+    position: static;
+    width: 100vw;
+}
+
+#about{
+    background-color:#f7f2ed;
+}
+
+#about figure{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    width: 100vw;
+}
+
+#about img{
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+
+#about div{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    height: 20vh;
+    align-items: baseline;
+    justify-content: center;
+}
+
+#about h1{
+    position: relative;
+    font-weight: bolder;
+    font-size: 6rem;
+}
+
+#about h1:first-child{
+    top: 40%;
+}
+
+#about h1:nth-child(2){
+    bottom: 40%;
+}
+
+
+
+article{
+    display: inline-block;
+    padding: 10% 15% 10% 15%;
+    background-color: #fcfcf7;
+}
+
+article p{
+    text-align: justify;
+    font-family: clartefont;
+    line-height: 0.9;
+    font-size: 1.5rem;
+    color:#727272;
+}
+
+    /*--Menu--*/
+
+    #clartemenu{
+        text-align: -webkit-center;
+        padding-bottom: 40px;
+        background-color: #f7f5eb;
+    }
+
+  h2{
+        color:#727272;
+        font-size: 5rem;
+        font-family: clartefont;    
+        font-weight: bolder;
+    }
+
+    #clartemenu p{
+        font-family: clartefont;
+        font-size: 1.5rem;
+        margin-top: 8px;
+        color:#727272;
+        text-align: center;
+    }
+    
+    #clartemenu figure{
+        width:fit-content;
+    }
+    
+    #clartemenu img{
+        width: 80vw;
+        margin-top: 10%;
+    }
+
+    #clartemenu img:hover{
+       border-radius: 60px;
+       transition-duration: 1s;
+    }
+
+   p{
+        text-align: justify;
+        font-family: clartefont;
+        line-height: 0.9;
+        font-size: 1.2rem;
+        color:#727272;
+    }
+
+    /*--Reservation--*/
+
+    #reservations{
+         background-color: #8b2f00;
+        background-image: url('../images/Clarte_Entrance_smaller.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding-bottom: 70px;
+    }
+
+    #reservations h2{
+        text-align: center;
+        color:#f7f2ed;
+    }
+
+    #reservationsdiv{
+        width: 70vw;
+        margin: 0% 10vw 0% 10vw;
+        text-align: justify;
+        background-color: #f7f2ed;
+        opacity: 0.6;
+        padding: 5vw;
+    }
+
+    .reserve{
+        font-size: 1.2rem;
+        padding: 10px 20px;
+        border-radius: 10px;
+        background-color: #8b2f00;
+        color:#f7f2ed;
+        border-style: none;
+        opacity: 1;
+
+    }
+
+    .reserve:hover{
+        font-weight: bolder;
+        border-radius: 20px;
+           transition-duration: 2s;
+    }
+
+    #footer{
+        background-color: #d3c0a9;
+    }
+
+    footer ul{
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+    }
+
+    footer img{
+        width: 30%;
+    }
+
+    footer li{
+        color:#727272;
+    }
+
+    footer a{
+text-decoration: none;
+color:#727272;
+    }
+
+    footer a:visited{
+        color:#727272;
+    }
+
+    footer div{
+        display: grid;
+    grid-template-rows: 30% 50% 25%;
+    padding: 5% 5%;
+    justify-items: center;
+    }
+
+    address{
+    font-family: 'clartefont';
+         padding: 0px 0px 20px 0px;
+    font-size: 20px;
+    font-style: normal;
+    text-align: center;
+color:#727272;
+align-content: center;
+}
+
+address p{
+    text-align:center;
+    padding: 0px 30% 20px 30%;
+}
+
+address img{
+    width: 50px;
+    max-width: 50px;
+    min-width: 50px;
+}
+
+/*what*/
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0, 1);
+    transition-duration: 1s;
+}
+
+.modal-content {
+    background-color: rgba(211, 192, 169);
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #917b65;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 5px;
+}
+
+.close {
+    color: #917b65;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #917b65;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+label {
+    font-family: clartefont;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="time"],
+button {
+    font-family: clartefont;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #917b65;
+    font-size: 16px;
+}
+
+button {
+    background-color: #8b2f00;
+    color: white;
+    cursor: pointer;
+        font-size: 1.2rem;
+}
+
+button:hover {
+    background-color: #917b65;
+}
+
+/*MEDIASCREEN MEDIUM*/
+
+@media screen and (min-width: 768px){
+p{
+    font-size: 1.5rem;
+}
+
+    .logo{
+        height: 51px;
+        width: 51px;
+        padding-left: 20px;
+    }
+    .menubar{
+        height: 55px;
+        width: 55px;
+        padding-right: 20px;
+    }
+
+    h1{
+        font-size: 5rem;
+    }
+
+    .icons{
+        grid-template-columns: 24px 42px 50px;
+        column-gap: 17px;
+        padding: 13px;
+    }
+
+    #backgroundimg{
+        content: url('../images/Clarte_Restaurant_Space_Dimmed.png');
+    }
+
+    /*--about--*/
+
+    #aboutimg{
+        content: url('../images/Clarte_Final_Touches_on_dish_small.png');
+
+    }
+
+    #about img{
+        max-width: 100%;
+        height: auto;
+        
+    }
+
+    #about h1{
+        font-size: 7rem;
+    }
+
+    #about h1:first-child{
+        top: 50%;
+    }
+
+    #about h1:nth-child(2){
+        bottom: 50%;
+    }
+    
+   /*--Menu--*/
+
+    footer div{
+        display: grid;
+    grid-template-rows: 30% 50% 20%;
+    padding: 5% 5%;
+    justify-items: center;
+    }
+
+    address{
+    font-family: 'clartefont';
+         padding: 0px 5% 40px 5%;
+    font-size: 20px;
+    font-style: normal;
+    text-align: center;
+    color:#727272;
+    align-content: center;
+    }
+
+    address img{
+        display: relative;
+        padding: 15px 0 15px 0;
+        width: 20%
+    }
+
+    .icons{
+        grid-template-columns: 50% 30% 20%;
+        column-gap: 15%;
+        left: 15px;
+        padding: 15px;
+    }
+
+
+    
+}
+
+@media screen and (min-width: 1024px){
+
+    p{
+        font-size: 2rem;
+    }
+    
+    #container {
+        width: 100vw;
+    left:0;
+    padding-top: 6px;
+    justify-content: flex-start;
+    flex-direction: column;
+    text-align: center;
+    }
+    nav{
+        display: inline;
+    }
+
+    ul{
+        display: inline-flex;
+    }
+
+    ul a{
+        text-decoration: none;
+        color: #f7f2ed;
+    }
+
+    li:hover{
+      animation: bounce 2s;
+    }
+
+    li{
+        padding: 40px;
+    }
+
+    ul a:visited{
+        color: #282828;
+      }
+
+    h1{
+        font-size: 6rem;
+    }
+
+    .headline1{
+        left: 20%;
+    }
+
+    .headline2{
+        width: 45vw;
+        left: 35%;
+    }
+
+
+    .icons img{
+        height: 35px;
+    }
+
+
+   .logo::after{
+        content: url('icons/Clarte-Fulllogo_Cream.png');
+        width: auto;
+    }
+
+    .menubar{
+        display:none;
+    }
+
+    /*--about--*/
+
+    #aboutimg{
+        content: url('../images/Clarte_Final_Touches_on_dish.png');
+    }
+
+    #about h1{
+        font-size: 10rem;
+    }
+
+    #about h1:first-child{
+        top: 60%;
+    }
+
+    #about h1:nth-child(2){
+        bottom: 60%;
+    }
+
+
+#about p{
+    font-size: 2.5rem;
+    line-height: 1.1;
+} 
+    /*--Menu--*/
+
+    #clartemenu p{
+        font-size: 2.5rem;
+        font-weight: 5000;
+    }
+
+    #clartemenu div{
+        display: grid;
+        grid-template-columns: 50% 50%;
+        justify-items: center;
+        padding: 0 5% 0% 5%;
+    }
+
+    #clartemenu img{
+        width: 35vw;
+    }
+
+    /*reservations*/
+
+    #reservations{
+        background-size: cover;
+        padding-bottom: 40px;
+    }
+
+
+    footer div{
+        display: grid;
+    grid-template-rows: 40% 40% 20%;
+    padding: 5% 5%;
+    justify-items: center;
+    }
+
+}
+
+@media (prefers-color-scheme: dark){
+body{
+  background-color:#534D41;
+}
+

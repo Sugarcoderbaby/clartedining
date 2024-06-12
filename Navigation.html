@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clarté | Fine Dining</title>
+    <link rel="icon" type="image/png" href="icons/Clarte_Favicon.png">
+<style>
+@font-face{
+    font-family: clartefont;
+src: url('css/msyi.ttf')}
+
+header{
+    width: 95vw;
+    height: 17vh;
+    display: flex;
+    justify-content: center;
+}
+
+
+.logo{
+    height: 40px;
+    width: 40px;
+    position: fixed;
+    top: 6%;
+    right: 47%;
+    
+}
+
+    body{
+        background-color: #f7f2ed;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    ul{
+        font-family: clartefont;
+        font-size: 20px;
+        list-style-type: none;
+        color: #727272;
+        display: grid;
+        row-gap: 20px;
+    
+    }
+
+
+    ul a{
+        text-decoration: none;
+        color: #727272;
+    }
+
+    ul a:hover{
+    color: #8b2f00;
+  }
+
+  ul a:visited{
+        color: #282828;
+      }
+
+
+
+    .close {
+        position: fixed;
+        right: 30px;
+        top: 6%;
+        border: none;
+        width: 40px;
+        height: 40px;
+        background-color: transparent;
+        cursor: pointer;
+        z-index: 1000;
+    }
+
+    
+    .close img{
+        height: 40px;
+        width: 40px;
+        padding-right: 15px;
+    }
+
+
+
+</style>
+
+</head>
+<body>
+    <header>
+    <a href="index.html">
+        <img class="logo" src="icons/Clarte_Icon_Grey.png"></a>
+    </header>
+   <button class="close" onclick="history.back()"><img src="icons/CrossGrey.png" alt="exit button"></button>
+    <aside id="menunav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#clartemenu">Menu</a></li>
+            <li><a href="index.html#reservations">Reservations</a></li>
+        </ul>
+    </aside>
+</body>
+</html>
